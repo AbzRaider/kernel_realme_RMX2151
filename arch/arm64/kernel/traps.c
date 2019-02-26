@@ -887,4 +887,5 @@ void __init trap_init(void)
 {
 	register_kernel_break_hook(&bug_break_hook);
 	register_kernel_break_hook(&refcount_break_hook);
+
 }
