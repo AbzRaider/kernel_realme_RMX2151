@@ -499,8 +499,7 @@ static void kwdt_process_kick(int local_bit, int cpu,
 	 * do not print message with spinlock held to
 	 *  avoid bulk of delayed printk happens here
 	 */
-
-	if (local_bit == wk_check_kick_bit()) {
+if (local_bit == wk_check_kick_bit()) {
 		msg_buf[5] = 'k';
 		mtk_wdt_restart(WD_TYPE_NORMAL);/* for KICK external wdt */
 		local_bit = 0;
