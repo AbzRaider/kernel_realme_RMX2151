@@ -779,7 +779,6 @@ KBUILD_CFLAGS += -O3
 KBUILD_CFLAGS += -mcpu=cortex-a55
 KBUILD_AFLAGS += -mcpu=cortex-a55
 endif
-
 KBUILD_CFLAGS += $(call cc-ifversion, -gt, 0900, \
 			$(call cc-option, -Wno-psabi) \
 			$(call cc-disable-warning,maybe-uninitialized,) \
