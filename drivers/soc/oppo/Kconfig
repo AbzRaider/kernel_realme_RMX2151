@@ -35,4 +35,3 @@ source "drivers/soc/oppo/oppo_shutdown_detect/Kconfig"
 #Kun.Hu@TECH.BSP.Stability.PHOENIX_PROJECT 2019/06/15, Add for PHOENIX_PROJECT
 source "drivers/soc/oppo/oppo_phoenix/Kconfig"
 #endif /* VENDOR_EDIT */
-

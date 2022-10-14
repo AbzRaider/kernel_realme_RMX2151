@@ -98,14 +98,12 @@
 #ifdef CONFIG_MTK_RAM_CONSOLE
 #include <mt-plat/mtk_ram_console.h>
 #endif
-
 #ifdef VENDOR_EDIT
 // Kun.Hu@TECH.BSP.Stability.PHOENIX_PROJECT 2019/06/11, Add for phoenix project
 #include "../drivers/soc/oppo/oppo_phoenix/oppo_phoenix.h"
 #endif  //VENDOR_EDIT
 
 static int kernel_init(void *);
-
 extern void init_IRQ(void);
 extern void fork_init(void);
 extern void radix_tree_init(void);
@@ -459,6 +457,10 @@ static int __init do_early_param(char *param, char *val,
 				pr_warn("Malformed early option '%s'\n", param);
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 13a02e8cedc9 (treewide: Drop oppo dump)
 	/* We accept everything at this stage. */
 	return 0;
 }
