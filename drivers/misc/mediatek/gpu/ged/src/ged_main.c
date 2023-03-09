@@ -47,10 +47,6 @@
 #include "ged_ge.h"
 #include "ged_gpu_tuner.h"
 
-#ifdef GED_SKI_SUPPORT
-#include "ged_ski.h"
-#endif
-
 #define GED_DRIVER_DEVICE_NAME "ged"
 #ifndef GED_BUFFER_LOG_DISABLE
 #ifdef GED_DEBUG
@@ -366,15 +362,12 @@ static void ged_exit(void)
 	ged_log_buf_free(ghLogBuf_HWC);
 	ghLogBuf_HWC = 0;
 #endif
+
 	ged_fdvfs_exit();
+
 #ifdef MTK_FRR20
 	ged_frr_system_exit();
 #endif
-#ifdef GED_SKI_SUPPORT
-	ged_ski_exit();
-#endif
-	ged_gpu_tuner_exit();
-
 
 	ged_kpi_system_exit();
 
@@ -464,27 +457,6 @@ static int ged_init(void)
 		GED_LOGE("ged: failed to init FRR Table!\n");
 		goto ERROR;
 	}
-<<<<<<< HEAD
-=======
-
-#ifdef GED_SKI_SUPPORT
-	err = ged_ski_init();
-	if (unlikely(err != GED_OK)) {
-		GED_LOGE("ged: failed to init ski!\n");
-		goto ERROR;
-	}
-#endif
-
-#ifndef GED_BUFFER_LOG_DISABLE
-	ghLogBuf_GPU = ged_log_buf_alloc(512, 128 * 512,
-		GED_LOG_BUF_TYPE_RINGBUFFER, "GPU_FENCE", NULL);
-
-#ifdef GED_DEBUG
-	ghLogBuf_GLES = ged_log_buf_alloc(160, 128 * 160,
-		GED_LOG_BUF_TYPE_RINGBUFFER, GED_LOG_BUF_COMMON_GLES, NULL);
-	ghLogBuf_GED = ged_log_buf_alloc(32, 64 * 32,
-		GED_LOG_BUF_TYPE_RINGBUFFER, "GED internal", NULL);
->>>>>>> 9699014ac390 (mt6785: drivers: mediatek/gpu: Add GED_SKI support)
 #endif
 
 #ifdef GED_FDVFS_ENABLE
