@@ -7,9 +7,13 @@ obj-$(CONFIG_OPPO_CRITICALLOG)  +=  oppo_criticallog/
 #ifdef VENDOR_EDIT
 #//wenbin.liu@PSW.Kernel.MM, 2018/05/23, Add for Healthinfo monitor
 obj-y     +=  oppo_healthinfo/
+<<<<<<< HEAD
 #endif /* VENDOR_EDIT */
 #Liang.Zhang@TECH.Storage.Stability.OPPO_SHUTDOWN_DETECT, 2019/04/28, Add for shutdown detect
 obj-$(CONFIG_OPPO_SHUTDOWN_DETECT)  +=  oppo_shutdown_detect/
 obj-$(CONFIG_OPPO_HYPNUS)       +=  oppo_hypnus/
 #Kun.Hu@TECH.BSP.Stability.PHOENIX_PROJECT 2019/06/15, Add for PHOENIX_PROJECT
 obj-$(CONFIG_OPPO_PHOENIX)     +=  oppo_phoenix/
+
+=======
+>>>>>>> 04b35d07be65 (treewide: Nuke OPPO Hypnus drivers)
