@@ -26,7 +26,7 @@ ifneq (,$(filter $(CONFIG_MTK_PLATFORM), "mt6775" "mt6771" "mt6765" "mt6761" "mt
 ifeq ($(CONFIG_MTK_GPU_COMMON_DVFS_SUPPORT),y)
 ccflags-y += -DGED_ENABLE_FB_DVFS
 endif
-endif
+
 
 ifneq (,$(filter $(CONFIG_MTK_PLATFORM), "mt6779" "mt6768" "mt6771" "mt6785"))
 ifeq ($(CONFIG_MTK_GPU_COMMON_DVFS_SUPPORT),y)
