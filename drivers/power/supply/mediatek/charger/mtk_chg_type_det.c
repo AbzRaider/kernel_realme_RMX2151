@@ -60,7 +60,6 @@ extern unsigned int is_project(OPPO_PROJECT project );
 #endif /*ODM_HQ_EDIT*/
 
 
-<<<<<<< HEAD
 #ifdef VENDOR_EDIT
 /*liuting@ODM.HQ.BSP.CHG 2020/05/19 Add for usb wakelock*/
 #include <linux/delay.h>
@@ -70,8 +69,6 @@ extern unsigned int is_project(OPPO_PROJECT project );
 /*liuting@ODM.HQ.BSP.CHG 2020/05/19 Add for usb wakelock*/
 extern int oppo_get_chg_unwakelock(void);
 
-=======
->>>>>>> 13a02e8cedc9 (treewide: Drop oppo dump)
 void __attribute__((weak)) fg_charger_in_handler(void)
 {
 	pr_notice("%s not defined\n", __func__);
@@ -306,14 +303,6 @@ static int mt_charger_set_property(struct power_supply *psy,
 		return 0;
 	case POWER_SUPPLY_PROP_CHARGE_TYPE:
 		mtk_chg->chg_type = val->intval;
-<<<<<<< HEAD
-=======
-		g_chr_type = val->intval;
-#ifdef ODM_WT_EDIT
-/*Sidong.Zhao@ODM_WT.BSP.CHG 2019/11/4,for gm30 baseline upgrade*/
-		oppo_chg_wake_update_work();
-#endif /*ODM_WT_EDIT*/
->>>>>>> 13a02e8cedc9 (treewide: Drop oppo dump)
 #if defined(VENDOR_EDIT) && defined(CONFIG_OPPO_CHARGER_MT6370_TYPEC)
 /* Jianchao.Shi@BSP.CHG.Basic, 2019/06/15, sjc Add for charging */
 		if (battery_psy)
