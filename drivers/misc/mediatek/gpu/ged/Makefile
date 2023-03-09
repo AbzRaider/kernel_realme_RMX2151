@@ -141,7 +141,6 @@ ged-y += \
 	src/ged_base.o \
 	src/ged_main.o \
 	src/ged_debugFS.o \
-	src/ged_ski.o \
 	src/ged_log.o \
 	src/ged_hal.o \
 	src/ged_bridge.o \

@@ -32,7 +32,6 @@
 #include <linux/kthread.h>
 #include <mt-plat/aee.h>
 
-#include "ged_ski.h"
 #include "ged_debugFS.h"
 #include "ged_log.h"
 #include "ged_hal.h"
@@ -386,8 +385,6 @@ static void ged_exit(void)
 
 	ged_debugFS_exit();
 
-    ged_ski_exit();
-
 	ged_ge_exit();
 
 	ged_gpu_tuner_exit();
@@ -403,12 +400,6 @@ static int ged_init(void)
 	if (NULL == proc_create(GED_DRIVER_DEVICE_NAME, 0644, NULL, &ged_fops)) {
 		err = GED_ERROR_FAIL;
 		GED_LOGE("ged: failed to register ged proc entry!\n");
-		goto ERROR;
-	}
-
-	err = ged_ski_init();
-	if (unlikely(err != GED_OK)) {
-		GED_LOGE("ged: failed to init ski!\n");
 		goto ERROR;
 	}
 
