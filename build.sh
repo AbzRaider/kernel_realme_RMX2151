@@ -13,7 +13,18 @@ git clone --depth=1 https://github.com/Kdrag0n/proton-clang.git clang
 git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 los-4.9-64
 git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 los-4.9-32
 
-[ -d "out" ] && rm -rf AnyKernel && rm -rf out || mkdir -p out
+if ! [ -d "out" ]; then
+	echo "Kernel OUT Directory Not Found . Making Again"
+mkdir out
+
+else
+
+	
+	sleep 5
+	echo "out directory already exists , Making Dirty Build !! "
+	echo "If you want to clean Build , just rm -rf out"
+	
+fi
 
 make O=out ARCH=arm64 RMX2151_defconfig
 
@@ -30,6 +41,9 @@ make -j$(nproc --all) O=out \
 
 function zupload()
 {
+if  [ -d "AnyKernel" ]; then	
+	rm -rf AnyKernel
+fi
 git clone --depth=1 https://github.com/AbzRaider/AnyKernel_RMX2001 -b RMX2151 AnyKernel
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 cd AnyKernel
