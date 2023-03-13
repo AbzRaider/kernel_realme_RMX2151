@@ -29,10 +29,7 @@ make O=out ARCH=arm64 RMX2151_defconfig
 PATH="${PWD}/clang/bin:${PATH}:${PWD}/clang/bin:${PATH}:${PWD}/clang/bin:${PATH}" \
 make -j$(nproc --all) O=out \
                       ARCH=arm64 \
-                      CC="clang" \
-                      LD=ld.lld \
-		      AR=llvm-ar \
-		      NM=llvm-nm \
+                      CC="clang" \ 
 		      OBJCOPY=llvm-objcopy \
 		      OBJDUMP=llvm-objdump \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
