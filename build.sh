@@ -2,7 +2,6 @@
 
 function compile() 
 {
-
 source ~/.bashrc && source ~/.profile
 export LC_ALL=C && export USE_CCACHE=1
 ccache -M 100G
@@ -12,7 +11,6 @@ export KBUILD_BUILD_USER="AbzRaiderXD"
 git clone --depth=1 https://github.com/Kdrag0n/proton-clang.git clang
 git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 los-4.9-64
 git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 los-4.9-32
-
 if ! [ -d "out" ]; then
 	echo "Kernel OUT Directory Not Found . Making Again"
 mkdir out
@@ -33,6 +31,10 @@ make -j$(nproc --all) O=out \
                       ARCH=arm64 \
                       CC="clang" \
                       LD=ld.lld \
+		      AR=llvm-ar \
+		      NM=llvm-nm \
+		      OBJCOPY=llvm-objcopy \
+		      OBJDUMP=llvm-objdump \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
                       CROSS_COMPILE="${PWD}/clang/bin/aarch64-linux-gnu-" \
                       CROSS_COMPILE_ARM32="${PWD}/clang/bin/arm-linux-gnueabi-" \
