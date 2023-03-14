@@ -258,6 +258,10 @@ void aee_oops_free(struct aee_oops *oops);
 #define DB_OPT_DUMP_DISPLAY             (1<<29)
 #define DB_OPT_NATIVE_BACKTRACE		(1<<30)
 #define DB_OPT_AARCH64			(1<<31)
+
+#define aee_kernel_exception(module, msg...)	\
+	aee_kernel_exception_api(__FILE__, __LINE__, DB_OPT_DEFAULT,	\
+			module, msg)
 #define aee_kernel_warning(module, msg...)	\
 	aee_kernel_warning_api(__FILE__, __LINE__, DB_OPT_DEFAULT,	\
 			module, msg)
@@ -286,6 +290,8 @@ void aee_oops_free(struct aee_oops *oops);
 
 void aee_kernel_exception_api(const char *file, const int line,
 		const int db_opt, const char *module, const char *msg, ...);
+void aee_kernel_warning_api(const char *file, const int line, const int db_opt,
+		const char *module, const char *msg, ...);
 void aee_kernel_reminding_api(const char *file, const int line,
 		const int db_opt, const char *module, const char *msg, ...);
 void aee_kernel_dal_api(const char *file, const int line, const char *msg);
