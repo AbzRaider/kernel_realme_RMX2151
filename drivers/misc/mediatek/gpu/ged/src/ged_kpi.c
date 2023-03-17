@@ -62,9 +62,8 @@ EXPORT_SYMBOL(ged_kpi_PushAppSelfFcFp_fbt);
 #define GED_KPI_MSEC_DIVIDER 1000000
 #define GED_KPI_SEC_DIVIDER 1000000000
 #define GED_KPI_MAX_FPS 90
-/* set default margin to be distinct from FPSGO(0 or 3) */
-#define GED_KPI_DEFAULT_FPS_MARGIN 4
-#define GED_KPI_CPU_MAX_OPP 4
+#define GED_KPI_DEFAULT_FPS_MARGIN 3
+
 typedef enum {
 	GED_TIMESTAMP_TYPE_D		= 0x1,
 	GED_TIMESTAMP_TYPE_1		= 0x2,
@@ -289,9 +288,9 @@ static unsigned int gx_gpu_freq_avg;
 
 #ifdef GED_KPI_CPU_BOOST
 static int boost_accum_cpu;
-static long target_t_cpu_remained = 16000000; /* for non-GED_KPI_MAX_FPS-FPS cases */
+static long target_t_cpu_remained = 14100000; /* for non-GED_KPI_MAX_FPS-FPS cases */
 /* static long target_t_cpu_remained_min = 8300000; */ /* default 0.5 vsync period */
-static int cpu_boost_policy;
+static int cpu_boost_policy=-1;
 static int boost_extra;
 static int boost_amp;
 static int deboost_reduce;
@@ -301,7 +300,7 @@ static void (*ged_kpi_cpu_boost_policy_fp)(GED_KPI_HEAD *psHead,
 module_param(target_t_cpu_remained, long, 0644);
 module_param(gx_force_cpu_boost, int, 0644);
 module_param(gx_top_app_pid, int, 0644);
-module_param(cpu_boost_policy, int, 0644);
+module_param(cpu_boost_policy, int, 0444);
 module_param(boost_extra, int, 0644);
 module_param(boost_amp, int, 0644);
 module_param(deboost_reduce, int, 0644);
