@@ -49,8 +49,7 @@ git clone --depth=1 https://github.com/AbzRaider/AnyKernel_RMX2001 -b RMX2151 An
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel
 cd AnyKernel
 zip -r9 Azrael-OSS-KERNEL-RMX2151.zip *
-curl -sL https://git.io/file-transfer | sh
-./transfer wet Azrael-OSS-KERNEL-RMX2151.zip
+curl --upload-file "Azrael-OSS-KERNEL-RMX2151.zip" https://free.keep.sh
 }
 
 compile
