@@ -7,7 +7,6 @@
  * Description: Source file for novatek nt36672c driver
  * Version   : 1.0
  * Date       : 2019/019/22
- * Author    : Wenping.ZHOU@PSW.BSP.Tp
  * TAG        : BSP.TP.Init
 
  * TAG: BSP.TP.Init
@@ -110,9 +109,6 @@
 
 #define CMD_OPEN_BLACK_GESTURE  0x13
 #define CMD_ENTER_SLEEP         0x11
-
-#define EVENTBUFFER_PHONE_CALL_ON  0x71
-#define EVENTBUFFER_PHONE_CALL_OFF         0x72
 
 typedef enum {
     NVT_RAWDATA,    //raw data

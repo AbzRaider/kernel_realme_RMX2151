@@ -5,11 +5,9 @@
  * Description: Source file for Touch common driver
  * Version   : 1.0
  * Date        : 2016-09-02
- * Author    : Tong.han@Bsp.Group.Tp
  * TAG         : BSP.TP.Init
  * ---------------- Revision History: --------------------------
  *   <version>    <date>          < author >                            <desc>
- * Revision 1.1, 2016-09-09, Tong.han@Bsp.Group.Tp, modify based on gerrit review result(http://gerrit.scm.adc.com:8080/#/c/223721/)
  ****************************************************************/
 #ifndef _TOUCHPANEL_COMMON_H_
 #define _TOUCHPANEL_COMMON_H_
@@ -142,7 +140,6 @@ typedef enum {
     MODE_PALM_REJECTION,
     MODE_FACE_DETECT,
     MODE_HEADSET,
-    MODE_CALL_PHONE,
 } work_mode;
 
 typedef enum {
@@ -737,7 +734,7 @@ struct earsense_proc_operations {
 
 /*********PART3:function or variables for other files**********************/
 extern unsigned int tp_debug ;                                                            /*using for print debug log*/
-extern int tpd_load_status;
+
 struct touchpanel_data *common_touch_data_alloc(void);
 
 int  common_touch_data_free(struct touchpanel_data *pdata);
